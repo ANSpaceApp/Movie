@@ -43,11 +43,19 @@ class MainViewController: UIViewController {
         searchController.searchBar.barStyle = .black
         presenter?.activityIndicatorStartAnimating()
         presenter?.getMoviewFeed(withPage: String(page))
+        
         setupTableView()
     }
+  
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.topItem?.title = "Скоро в кино"
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+      
     }
     private func setupTableView() {
         tableView.delegate = self
@@ -155,10 +163,6 @@ extension MainViewController {
 }
 extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
+      
     }
 }

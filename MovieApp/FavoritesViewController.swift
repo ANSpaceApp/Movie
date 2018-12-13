@@ -22,6 +22,11 @@ class FavoritesViewController: UIViewController {
         favoritesTableView.register(kTableViewCellNib, forCellReuseIdentifier: kTableViewCellReuseIdentifier)
         setUpUI{}
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.topItem?.title = "Избранное"
+        
+    }
 }
 extension FavoritesViewController {
     private func setUpUI(completion: ()-> Void) {
